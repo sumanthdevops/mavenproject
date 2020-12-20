@@ -27,17 +27,23 @@ pipeline {
         }
         stage('Upload War To Nexus'){
             steps{
-                script{
-
-                    def mavenPom = readMavenPom file: 'pom.xml'
-                    def nexusRepoName = mavenPom.version.endsWith("SNAPSHOT") ? "devops3-snapshot" : "simpleapp"
-                    nexusArtifactUploader artifacts: [[artifactId: 'devops3',
-					classifier: '', file: 'target/devops3-1.0-SNAPSHOT.war', 
-					type: 'war']], credentialsId: 'nexus', groupId: 'org.tinygroup', 
-					nexusUrl: '13.233.130.173:8081', nexusVersion: 'nexus3', protocol: 'http', 
-					repository: 'simpleapp', version: '1.0-SNAPSHOT'
-                }
-            }
+                
+                    nexusArtifactUploader artifacts: [
+					     [
+					       artifactId: 'devops3',
+					       classifier: '', 
+						   file: 'target/devops3-1.0-SNAPSHOT.war', 
+					       type: 'war'
+				        ]
+				], 
+				credentialsId: 'nexus',
+				groupId: 'org.tinygroup', 
+				nexusUrl: '13.233.130.173:8081', 
+				nexusVersion: 'nexus3', 
+				protocol: 'http', 
+				repository: 'simpleapp', 
+				version: '1.0-SNAPSHOT'
+             }
         }
     }
  }
