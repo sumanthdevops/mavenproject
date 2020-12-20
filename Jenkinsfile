@@ -32,7 +32,7 @@ pipeline {
 					     [
 					       artifactId: 'devops3',
 					       classifier: '', 
-						   file: 'target/devops3-1.0-SNAPSHOT.war', 
+						   file: 'target/devops3.war', 
 					       type: 'war'
 				        ]
 				], 
@@ -42,8 +42,9 @@ pipeline {
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
 				repository: 'simpleapp', 
-				version: '1.0-SNAPSHOT'
+				version: '1.0'
              }
         }
     }
  }
+ 	
