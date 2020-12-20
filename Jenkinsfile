@@ -42,7 +42,7 @@ pipeline {
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
 				repository: 'simpleapp', 
-				version: '1.1'
+				version: '2.1'
              }
         }
     }
